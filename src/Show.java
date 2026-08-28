@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Show {
     private final String title;
@@ -31,6 +32,7 @@ public class Show {
         return new ArrayList<>(listOfActors);
     }
 
+    @Override
     public String toString() {
         String str = "Название: " + title + "\nПродолжительность: " + duration + "\nПостановщик: \n" + director + "\n";
         str += "\nСостав актерской труппы:\n";
@@ -59,6 +61,19 @@ public class Show {
             return true;
         }
         System.out.println("Актерa " + oldActor.toString() + "нет в труппе");
+        return false;
+    }
+
+    public boolean changeActor(String name, String surname, Actor newActor) {
+        for (Actor actor: listOfActors) {
+            if (Objects.equals(actor.getName(), name) && Objects.equals(actor.getSurname(), surname)) {
+                listOfActors.remove(actor);
+                listOfActors.add(newActor);
+                System.out.println("Актер: \n" + surname + "заменен на: \n" + newActor.toString() + "в труппе.");
+                return true;
+            }
+        }
+        System.out.println("Актерa " + surname + "нет в труппе");
         return false;
     }
 

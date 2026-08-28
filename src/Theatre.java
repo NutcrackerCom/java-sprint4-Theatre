@@ -25,7 +25,7 @@ public class Theatre {
         System.out.println("______________________");
         System.out.println(film);
         System.out.println("______________________");
-        film.changeActor(actorEdwardNorton, new Actor(Gender.MALE, "Саша", "Белыый", 1.8));
+        film.changeActor("Эдвард", "Нортон", new Actor(Gender.MALE, "Саша", "Белыый", 1.8));
         System.out.println(film);
         System.out.println("______________________");
     }
